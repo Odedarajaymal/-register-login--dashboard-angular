@@ -1,0 +1,12 @@
+<div class="row">
+    <h4  class="mt-2 alert alert-danger" *ngIf="error">{{error.error}}</h4>
+    <div class="card mt-5 col-lg-4"  *ngFor="let product of productList" >
+        <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/81SdJG3OUjL._SL1500_.jpg" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">{{product.id}}</h4>
+          <p class="card-text">{{product.name}}</p>
+          <p class="card-text">{{product.email}}</p>
+          <a routerLink="/product/jkd/{{product.id}}" class="btn btn-primary">View Product</a>
+        </div>    
+      </div>
+ </div>

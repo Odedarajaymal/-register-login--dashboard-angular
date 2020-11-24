@@ -1,0 +1,25 @@
+   
+  <h1 class="text-muted mt-5">Signup</h1>
+  <h4  class="mt-2 alert alert-success" *ngIf="message">New Account successfully created <a routerLink="/signin">please sign in</a></h4>
+   <h4  class="mt-2 alert alert-danger" *ngIf="error">{{error.error}}</h4>
+  <div>
+    <form [formGroup]="signup" (ngSubmit)="onSubmit($event)" class="mt-5">
+        <div class="form-group">
+            <input formControlName="name" type="text" class="form-control" placeholder="Name">
+             <span class="text-danger"  *ngIf="!signup.get('name').valid && signup.get('name').touched">name is required and name length is minimum 3</span>
+        </div>
+        <div class="form-group">
+         <input formControlName="email" type="email" class="form-control" placeholder="Email">
+         <span class=" text-danger"  *ngIf="signup.get('email').invalid && signup.get('email').touched">email is required and please provide a valid email</span>
+     </div>
+     <div class="form-group mt-3">
+         <input formControlName="password" type="password" class="form-control" placeholder="Password">
+         <span class=" text-danger"   *ngIf="!signup.get('password').valid && signup.get('password').touched">password is required and password length is minimum 5</span>
+     </div>
+       <button [disabled]="!signup.valid" type="submit" class="btn btn-warning btn-lg mt-2">Submit</button>
+       <span class="text-muted ml-3">Already have an account?<a routerLink="/signin"> please sign in</a></span><br>
+         <span class="mt-3 text-muted" *ngIf="signup.get('name').touched || signup.get('email').touched">please provide valid data to continue</span>
+    </form>  
+  </div>
+     
+ 
